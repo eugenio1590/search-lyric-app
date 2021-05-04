@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Lyrics App</string>
+
+    <!-- NAVIGATION -->
+    <string name="nav_fragment_history">Lyric History</string>
+    <string name="nav_fragment_search_lyric">Search Lyric</string>
+    <string name="nav_fragment_lyric">Lyric</string>
 </resources>
