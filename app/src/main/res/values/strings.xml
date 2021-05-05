@@ -8,4 +8,9 @@
 
     <!-- HISTORY MENU -->
     <string name="menu_history_search">Search</string>
+
+    <!-- SEARCH LYRIC -->
+    <string name="artist_prompt">Artist</string>
+    <string name="song_title_prompt">Song title</string>
+    <string name="action_search">Search</string>
 </resources>
