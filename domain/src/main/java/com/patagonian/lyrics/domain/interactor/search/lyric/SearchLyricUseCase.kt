@@ -8,7 +8,7 @@ import java.util.Date
 /**
  * Concrete implementation of the use case [SearchLyric].
  *
- * @param songs the main entry point to access to the songs data.
+ * @param songs the main entry point to access to the songs data
  * @constructor new instance of the use case [SearchLyric]
  * @see SearchLyric
  */
