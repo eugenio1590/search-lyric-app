@@ -18,4 +18,11 @@ sealed class DomainException : Exception() {
     sealed class TransactionException : DomainException() {
         object RecordNotFound : TransactionException()
     }
+
+    /**
+     * Network exceptions
+     */
+    sealed class NetworkException : DomainException() {
+        object NetworkNotAvailable : NetworkException()
+    }
 }

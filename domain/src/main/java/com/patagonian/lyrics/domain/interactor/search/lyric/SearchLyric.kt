@@ -30,5 +30,20 @@ interface SearchLyric {
      */
     suspend fun execute(title: String, author: String, presenter: Presenter)
 
-    interface Presenter : com.patagonian.lyrics.domain.interactor.Presenter<Song>
+    interface Presenter : com.patagonian.lyrics.domain.interactor.Presenter<Song> {
+
+        val useCase: SearchLyric
+
+        /**
+         * Method to reset the UI state.
+         */
+        fun reset()
+
+        /**
+         * Method to execute the [useCase].
+         *
+         * @see [execute]
+         */
+        suspend fun search()
+    }
 }
