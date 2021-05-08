@@ -9,7 +9,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.common.truth.Truth.assertThat
 import com.patagonian.lyrics.R
-import com.patagonian.lyrics.fragment.history.HistoryFragment
+import com.patagonian.lyrics.ui.history.HistoryFragment
 import com.patagonian.lyrics.util.setup
 import org.junit.Test
 import org.junit.runner.RunWith

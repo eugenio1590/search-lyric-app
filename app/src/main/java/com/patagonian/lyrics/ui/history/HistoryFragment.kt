@@ -1,4 +1,4 @@
-package com.patagonian.lyrics.fragment.history
+package com.patagonian.lyrics.ui.history
 
 import android.os.Bundle
 import android.view.*

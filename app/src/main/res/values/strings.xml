@@ -6,6 +6,11 @@
     <string name="nav_fragment_search_lyric">Search Lyric</string>
     <string name="nav_fragment_lyric">Lyric</string>
 
+    <!-- ERRORS -->
+    <string name="error_network_not_available">No connection</string>
+    <string name="error_mandatory_field">Mandatory field</string>
+    <string name="error_song_not_found">"Can't find this song"</string>
+
     <!-- HISTORY MENU -->
     <string name="menu_history_search">Search</string>
 

@@ -1,9 +1,10 @@
-package com.patagonian.lyrics
+package com.patagonian.lyrics.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
+import com.patagonian.lyrics.R
 
 class MainActivity : AppCompatActivity() {
 

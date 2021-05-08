@@ -1,4 +1,4 @@
-package com.patagonian.lyrics.fragment.lyric
+package com.patagonian.lyrics.ui.lyric
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
