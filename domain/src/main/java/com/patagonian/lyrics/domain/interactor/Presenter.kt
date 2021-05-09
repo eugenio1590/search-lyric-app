@@ -5,6 +5,8 @@ package com.patagonian.lyrics.domain.interactor
  */
 interface Presenter<T> {
 
+    fun reset()
+
     fun success(result: T)
 
     fun failure(error: Throwable)

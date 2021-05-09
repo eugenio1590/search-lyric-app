@@ -26,5 +26,15 @@ interface SearchSongHistory {
      */
     suspend fun execute(presenter: Presenter)
 
-    interface Presenter : com.patagonian.lyrics.domain.interactor.Presenter<List<Song>>
+    interface Presenter : com.patagonian.lyrics.domain.interactor.Presenter<List<Song>> {
+
+        val useCase: SearchSongHistory
+
+        /**
+         * Method to execute the [useCase].
+         *
+         * @see [execute]
+         */
+        suspend fun search() = useCase.execute(this)
+    }
 }
