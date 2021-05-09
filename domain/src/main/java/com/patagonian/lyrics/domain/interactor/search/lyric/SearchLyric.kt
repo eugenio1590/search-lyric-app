@@ -35,7 +35,7 @@ interface SearchLyric {
         val useCase: SearchLyric
 
         /**
-         * Method to reset the UI state.
+         * Method to reset the search.
          */
         fun reset()
 

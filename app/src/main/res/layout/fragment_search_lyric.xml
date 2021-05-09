@@ -73,6 +73,25 @@
                 android:text="@string/action_search"
                 android:enabled="@{viewModel.isLoading ? false : true}" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{viewModel.moreRecentSong != null ? View.VISIBLE : View.GONE}">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recent_search"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+                <include
+                    layout="@layout/song_item"
+                    android:id="@+id/container_song_item"
+                    app:song="@{viewModel.moreRecentSong}" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>

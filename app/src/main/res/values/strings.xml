@@ -17,7 +17,9 @@
     <string name="artist_prompt">Artist</string>
     <string name="song_title_prompt">Song title</string>
     <string name="action_search">Search</string>
+    <string name="recent_search">Recent Search</string>
 
     <!-- LYRIC -->
     <string name="artist_title">By %1$s</string>
+    <string name="search_at">Search at</string>
 </resources>

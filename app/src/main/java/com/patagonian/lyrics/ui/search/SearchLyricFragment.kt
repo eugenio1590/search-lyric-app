@@ -67,6 +67,11 @@ class SearchLyricFragment : Fragment(), SearchLyricView {
             }
         }
 
+        binding.containerSongItem.root.setOnClickListener {
+            val song = viewModel.moreRecentSong.value ?: return@setOnClickListener
+            displayLyric(song)
+        }
+
         viewModel.state.observe(viewLifecycleOwner) {
             when (it) {
                 is UIState.Loading -> Log.d(TAG, "Loading...")
