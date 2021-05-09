@@ -21,6 +21,9 @@ class ViewModel : androidx.lifecycle.ViewModel() {
     private val _artistNameError = MutableLiveData<String?>()
     val artistNameError: LiveData<String?> = _artistNameError
 
+    private val _moreRecentSong = MutableLiveData<Song>()
+    val moreRecentSong: LiveData<Song> = _moreRecentSong
+
     private val action = MutableLiveData(Action.NONE)
 
     enum class Action {
@@ -60,6 +63,7 @@ class ViewModel : androidx.lifecycle.ViewModel() {
     }
 
     fun success(song: Song) {
+        _moreRecentSong.postValue(song)
         _state.postValue(UIState.Success(song))
     }
 
