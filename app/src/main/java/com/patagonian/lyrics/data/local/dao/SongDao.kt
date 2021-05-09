@@ -18,4 +18,7 @@ interface SongDao {
 
     @Query("SELECT * FROM song WHERE title LIKE '%' || :title || '%' AND author LIKE '%' || :author || '%' LIMIT 1")
     fun findByTitleAndAuthor(title: String, author: String): Song?
+
+    @Query("SELECT * FROM song ORDER BY search_at DESC")
+    fun findBySearchAtDesc(): List<Song>
 }

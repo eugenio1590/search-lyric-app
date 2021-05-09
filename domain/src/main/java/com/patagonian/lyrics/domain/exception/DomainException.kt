@@ -17,6 +17,7 @@ sealed class DomainException : Exception() {
      */
     sealed class TransactionException : DomainException() {
         object RecordNotFound : TransactionException()
+        object EmptyRecordList : TransactionException()
     }
 
     /**

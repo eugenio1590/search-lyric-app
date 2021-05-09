@@ -23,6 +23,19 @@ class LocalSongRepository(
         private val TAG = LocalSongRepository::class.java.canonicalName
     }
 
+    override suspend fun save(song: Song) {
+        try {
+            val entity = songMapper.toEntity(song)
+            if (!entity.isSaved) {
+                songDao.insert(entity)
+            } else {
+                songDao.update(entity)
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "An error has occurred saving a $song", e)
+        }
+    }
+
     override suspend fun findBy(title: String, author: String): Result<Song> {
         return try {
             val entity = songDao.findByTitleAndAuthor(title, author)
@@ -40,16 +53,14 @@ class LocalSongRepository(
         }
     }
 
-    override suspend fun save(song: Song) {
-        try {
-            val entity = songMapper.toEntity(song)
-            if (!entity.isSaved) {
-                songDao.insert(entity)
-            } else {
-                songDao.update(entity)
-            }
+    override suspend fun findBySearchAtDesc(): Result<List<Song>> {
+        return try {
+            val songs = songDao.findBySearchAtDesc().map { songMapper.toSong(it) }
+            Log.i(TAG, "${songs.size} records found getting the song history")
+            Result.success(songs)
         } catch (e: Exception) {
-            Log.e(TAG, "An error has occurred saving a $song", e)
+            Log.e(TAG, "An error has occurred getting the song history")
+            Result.success(emptyList())
         }
     }
 

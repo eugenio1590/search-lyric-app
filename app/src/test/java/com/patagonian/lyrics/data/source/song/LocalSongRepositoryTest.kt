@@ -10,6 +10,7 @@ import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
+import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.justRun
 import io.mockk.mockk
@@ -108,6 +109,71 @@ class LocalSongRepositoryTest : BehaviorSpec({
 
                 then("the record should be updated") {
                     verify { songDao.update(savedRecord) }
+                }
+            }
+        }
+    }
+
+    given("a list of saved song") {
+        val record = Entity(id = 1, title = "song title", author = "author name", lyric = "lyric")
+        val song = Song(id = record.id, title = record.title, author = record.author, lyric = record.lyric, searchAt = record.searchAt)
+        val savedSongs = listOf(record)
+        every { songDao.findBySearchAtDesc() } returns savedSongs
+        every { songMapper.toSong(record) } returns song
+
+        `when`("getting the record list sorted by descending search at") {
+            val result = repository.findBySearchAtDesc()
+
+            then("the result should be successful") {
+                result.should {
+                    it.isSuccess.shouldBeTrue()
+                    it.getOrNull().shouldBe(listOf(song))
+                }
+            }
+        }
+
+        and("an error occurs") {
+            every { songDao.findBySearchAtDesc() } throws Exception("DATABASE ERROR")
+
+            `when`("getting the record list sorted by descending search at") {
+                val result = repository.findBySearchAtDesc()
+
+                then("the result should be successful") {
+                    result.should {
+                        it.isSuccess.shouldBeTrue()
+                        it.getOrNull().shouldBe(emptyList())
+                    }
+                }
+            }
+        }
+    }
+
+    given("an empty list of saved song") {
+        val savedSongs = emptyList<Entity>()
+        coEvery { songDao.findBySearchAtDesc() } returns savedSongs
+
+        `when`("getting the record list sorted by descending search at") {
+            val result = repository.findBySearchAtDesc()
+
+            then("the result should be successful") {
+                result.should {
+                    it.isSuccess.shouldBeTrue()
+                    it.getOrNull().shouldBe(emptyList())
+                }
+            }
+        }
+
+        and("an error occurs") {
+            every { songDao.findBySearchAtDesc() } throws Exception("DATABASE ERROR")
+
+            `when`("getting the record list sorted by descending search at") {
+                val result = repository.findBySearchAtDesc()
+
+                then("the result should be successful") {
+                    result.should {
+                        it.isSuccess.shouldBeTrue()
+                        it.getOrNull().shouldBe(emptyList())
+                    }
                 }
             }
         }

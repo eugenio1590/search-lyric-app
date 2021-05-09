@@ -9,6 +9,13 @@ import com.patagonian.lyrics.domain.exception.DomainException.TransactionExcepti
 interface Songs {
 
     /**
+     * Method to save the song data in the data source.
+     *
+     * @param song the song data
+     */
+    suspend fun save(song: Song)
+
+    /**
      * Method to get the song record based on its [title] and its [author].
      *
      * @param title the song title
@@ -20,9 +27,10 @@ interface Songs {
     suspend fun findBy(title: String, author: String): Result<Song>
 
     /**
-     * Method to save the song data in the data source.
+     * Method to get a list of a [Song] sorted by search date descending.
      *
-     * @param song the song data
+     * @return the [Song] list
+     * @see Song
      */
-    suspend fun save(song: Song)
+    suspend fun findBySearchAtDesc(): Result<List<Song>>
 }

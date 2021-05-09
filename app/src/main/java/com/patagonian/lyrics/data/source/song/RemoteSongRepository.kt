@@ -23,6 +23,8 @@ class RemoteSongRepository(
         private val TAG = RemoteSongRepository::class.java.canonicalName
     }
 
+    override suspend fun save(song: Song) = throw UnsupportedOperationException()
+
     override suspend fun findBy(title: String, author: String): Result<Song> {
         return try {
             val result = songService.searchLyric(author, title)
@@ -41,5 +43,5 @@ class RemoteSongRepository(
         }
     }
 
-    override suspend fun save(song: Song) = throw UnsupportedOperationException()
+    override suspend fun findBySearchAtDesc(): Result<List<Song>> = throw UnsupportedOperationException()
 }
