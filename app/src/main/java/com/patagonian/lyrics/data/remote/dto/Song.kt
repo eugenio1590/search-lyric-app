@@ -1,10 +1,8 @@
 package com.patagonian.lyrics.data.remote.dto
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.SerializedName
 
-@JsonClass(generateAdapter = true)
 data class Song(
-    @Json(name = "lyrics")
+    @SerializedName("lyrics")
     val lyric: String
 )

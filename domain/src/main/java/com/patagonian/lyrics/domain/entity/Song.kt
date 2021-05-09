@@ -1,5 +1,6 @@
 package com.patagonian.lyrics.domain.entity
 
+import java.io.Serializable
 import java.util.Date
 
 /**
@@ -11,4 +12,4 @@ data class Song(
     val author: String,
     val lyric: String,
     val searchAt: Date = Date()
-)
+) : Serializable
