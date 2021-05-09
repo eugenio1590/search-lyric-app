@@ -4,7 +4,6 @@
     <!-- NAVIGATION -->
     <string name="nav_fragment_history">Lyric History</string>
     <string name="nav_fragment_search_lyric">Search Lyric</string>
-    <string name="nav_fragment_lyric">Lyric</string>
 
     <!-- ERRORS -->
     <string name="error_network_not_available">No connection</string>
@@ -18,4 +17,7 @@
     <string name="artist_prompt">Artist</string>
     <string name="song_title_prompt">Song title</string>
     <string name="action_search">Search</string>
+
+    <!-- LYRIC -->
+    <string name="artist_title">By %1$s</string>
 </resources>

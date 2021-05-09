@@ -36,7 +36,6 @@
     <fragment
         android:id="@+id/lyricFragment"
         android:name="com.patagonian.lyrics.ui.lyric.LyricFragment"
-        android:label="@string/nav_fragment_lyric"
         tools:layout="@layout/fragment_lyric">
 
         <argument
