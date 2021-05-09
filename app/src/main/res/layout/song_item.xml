@@ -19,7 +19,7 @@
             android:id="@+id/txt_song_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+            android:textAppearance="?attr/textAppearanceSubtitle2"
             android:text="@{song.title}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

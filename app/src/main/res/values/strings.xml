@@ -10,8 +10,13 @@
     <string name="error_mandatory_field">Mandatory field</string>
     <string name="error_song_not_found">"Can't find this song"</string>
 
-    <!-- HISTORY MENU -->
+    <!-- HISTORY -->
     <string name="menu_history_search">Search</string>
+    <string name="history_empty_list_title">Get Started</string>
+    <string name="history_empty_list_description">
+        Find the lyrics of your favorite songs and keep them on your smartphone
+    </string>
+    <string name="history_empty_list_action">Find a Song</string>
 
     <!-- SEARCH LYRIC -->
     <string name="artist_prompt">Artist</string>
